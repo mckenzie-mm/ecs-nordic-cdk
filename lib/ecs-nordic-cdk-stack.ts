@@ -8,8 +8,8 @@ export class EcsNordicCdkStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-  // add VPC (Virtual Private Cloud)
-    const vpc = new cdk.aws_ec2.Vpc(this, "vpc", {
+  // Add VPC (Virtual Private Cloud)
+    const vpc = new cdk.aws_ec2.Vpc(this, "vpc-wwurm", {
       ipAddresses: cdk.aws_ec2.IpAddresses.cidr(
         cdk.aws_ec2.Vpc.DEFAULT_CIDR_RANGE
       ),
@@ -21,13 +21,13 @@ export class EcsNordicCdkStack extends cdk.Stack {
       subnetConfiguration: [
         {
           cidrMask: 16,
-          name: 'ecsWithEc2-mark',
+          name: 'ecsWithEc2-mark-wwum',
           subnetType: cdk.aws_ec2.SubnetType.PUBLIC,
         },
       ],
     });
 
-    // add key pair to access EC2 instance
+    // Add key pair to access EC2 instance
     const keyPair = ec2.KeyPair.fromKeyPairAttributes(this, 'KeyPair', {
       keyPairName: 'KeyPair2',
       type: ec2.KeyPairType.RSA,
@@ -35,11 +35,11 @@ export class EcsNordicCdkStack extends cdk.Stack {
 
     // Create EC2 cluster instance
      const cluster = new cdk.aws_ecs.Cluster(this, "cluster", {
-      clusterName: 'ecsWithEc2Cluster-mark',
+      clusterName: 'ecsWithEc2Cluster-mark-wwurm',
       vpc: vpc,
       capacity: {
         instanceType: cdk.aws_ec2.InstanceType.of(
-          cdk.aws_ec2.InstanceClass.T2,
+          cdk.aws_ec2.InstanceClass.T3A,
           cdk.aws_ec2.InstanceSize.SMALL,
         ),
         keyPair: keyPair,
@@ -47,13 +47,17 @@ export class EcsNordicCdkStack extends cdk.Stack {
     });
 
     // Create Task definition of Containers with a Bridge network
-
+    // with a bridge for the networking
+    // Expose instance to public
     const taskDefinition = new ecs.Ec2TaskDefinition(this, 'TaskDef', {
-      networkMode: cdk.aws_ecs.NetworkMode.BRIDGE, // add a bridge for the networking and to expose instance to public
+      networkMode: cdk.aws_ecs.NetworkMode.BRIDGE, 
     });
 
-    const webapi = taskDefinition.addContainer('webapi', { //case sensitive - the name must be in lower case letters to work
-      image: ecs.ContainerImage.fromRegistry("snapdragonxc/dotnet-app"),
+
+    // Add backend container
+    // 'webapi' is case sensitive - the name must be in lower case letters to work
+    const webapi = taskDefinition.addContainer('webapi', { 
+      image: ecs.ContainerImage.fromRegistry("snapdragonxc/dotnet-wwurm"),
       memoryLimitMiB: 512,
     });
 
@@ -63,8 +67,9 @@ export class EcsNordicCdkStack extends cdk.Stack {
       protocol: ecs.Protocol.TCP,
     });
 
+    // Add frontend container
     const appContainer = taskDefinition.addContainer('AppContainer', {
-      image: ecs.ContainerImage.fromRegistry("snapdragonxc/nextjs-app"),
+      image: ecs.ContainerImage.fromRegistry("snapdragonxc/app-wwurm"),
       memoryLimitMiB: 512,
     });
 
@@ -74,14 +79,15 @@ export class EcsNordicCdkStack extends cdk.Stack {
       protocol: ecs.Protocol.TCP,
     });
 
+    // Add backend network alias to frontend container
     appContainer.addLink(webapi); 
 
     // Instantiate an Amazon ECS Service
-    const ecsService = new ecs.Ec2Service(this, 'Service', {
+    const ecsService = new ecs.Ec2Service(this, 'Service-wwurm', {
       cluster,
       taskDefinition
     });
 
-    ecsService.connections.allowFromAnyIpv4(cdk.aws_ec2.Port.allTcp()); // this is required
+    ecsService.connections.allowFromAnyIpv4(cdk.aws_ec2.Port.allTcp()); 
   }
 }
