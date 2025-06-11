@@ -2,6 +2,10 @@
 
 Demonstration setup for the company 'Nordicmade' based in Norway (https://www.nordicmade.com/) 
 
+The frontend code is a Nextjs/dotnet replacement for the "savoy" Wordpress app built by Nordicmade:
+
+http://3.26.70.15/
+
 This is the CDK code for the deployment to an AWS Elastic Container Service (ECS) of the Nextjs frondend code and the dotnet backend API code  as a mircoservice.
 
 The ECS runs both the Nextjs and dotnet apps (docker containers) on the same task using an EC2 cluster.
