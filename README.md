@@ -21,4 +21,4 @@ The `cdk.json` file instructs the CDK Toolkit how to execute the app.
 # ecs-nordic-cdk
 
 Inline-style: 
-![alt text][https://github.com/mckenzie-mm/ecs-nordic-cdk/blob/main/images-readme/1.png](https://github.com/mckenzie-mm/ecs-nordic-cdk/blob/main/images-readme/1.png)
+![alt text](https://github.com/mckenzie-mm/ecs-nordic-cdk/blob/main/images-readme/1.png)
