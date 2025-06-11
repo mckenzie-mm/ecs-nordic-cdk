@@ -1,8 +1,14 @@
-# Welcome to your CDK TypeScript project
+# CDK 
 
-This is a blank project for CDK development with TypeScript.
+Demonstration setup for the company 'Nordicmade' based in Norway (https://www.nordicmade.com/) 
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+This is the CDK code for the deployment to an AWS Elastic Container Service (ECS) of the Nextjs frondend code and the dotnet backend API code  as a mircoservice.
+
+The ECS runs both the Nextjs and dotnet apps (docker containers) on the same task using an EC2 cluster.
+
+The task uses a bridge network for communicating between the containers.
+
+The `cdk.json` file instructs the CDK Toolkit how to execute the app.
 
 ## Useful commands
 
