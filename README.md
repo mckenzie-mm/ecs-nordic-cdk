@@ -19,3 +19,6 @@ The `cdk.json` file instructs the CDK Toolkit how to execute the app.
 * `npx cdk diff`    compare deployed stack with current state
 * `npx cdk synth`   emits the synthesized CloudFormation template
 # ecs-nordic-cdk
+
+Inline-style: 
+![alt text][https://github.com/mckenzie-mm/ecs-nordic-cdk/blob/main/images-readme/1.png](https://github.com/mckenzie-mm/ecs-nordic-cdk/blob/main/images-readme/1.png)
