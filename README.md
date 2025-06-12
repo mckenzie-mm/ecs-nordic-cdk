@@ -1,4 +1,4 @@
-# CDK 
+# Infra-structure as code (AWS CDK) 
 
 This is the infra-structure as code (AWS CDK) part of the demonstration website built for the company 'Nordicmade' based in Norway (https://www.nordicmade.com/) 
 
