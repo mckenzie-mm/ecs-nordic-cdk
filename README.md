@@ -2,7 +2,7 @@
 
 This is the CDK part of the demonstration setup for the company 'Nordicmade' based in Norway (https://www.nordicmade.com/) 
 
-The code is a Nextjs/dotnet replacement for the "savoy" Wordpress app built by Nordicmade:
+The code is a Nextjs/dotnet replacement for the "savoy" Wordpress app built by Nordicmade. The nextjs/dotnet demonstration is at:
 
 http://3.26.70.15/
 
