@@ -4,7 +4,7 @@ This is the infra-structure as code (AWS CDK) part of the demonstration website 
 
 The website is a Nextjs/dotnet replacement for the "savoy" Wordpress app built by Nordicmade. The demonstration website is at: http://3.26.70.15/
 
-The CDK deploys the app as a microservice to an AWS Elastic Container Service (ECS) with the Nextjs frondend code and the dotnet backend API code.
+The CDK deploys the app as a microservice to an AWS Elastic Container Service (ECS) with a Nextjs frondend and the dotnet backend API.
 The front end code is at https://github.com/mckenzie-mm/nordic-frontend. The dotnet backend is at: https://github.com/mckenzie-mm/nordic-api
 
 The app runs on an AWS container service (ECS). This was chosen instead of Kubernetes due to the lower cost and ease with which a demonstration setup could be configured with ECS. It is currently deployed only on the Australian AWS region and will be slow to load in Europe/Norway. 
