@@ -24,6 +24,8 @@ The `cdk.json` file instructs the CDK Toolkit how to execute the app.
 * `npx cdk synth`   emits the synthesized CloudFormation template
 # ecs-nordic-cdk
 
+The main part of the infrastructure is shown in the code extract below. It is currently deployed only on Australian AWS and will be slow to load in Europe/Norway.
+
 ![alt text](https://github.com/mckenzie-mm/ecs-nordic-cdk/blob/main/images-readme/1.png)
 
 ![alt text](https://github.com/mckenzie-mm/ecs-nordic-cdk/blob/main/images-readme/2.png)
