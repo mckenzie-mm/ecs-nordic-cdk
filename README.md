@@ -12,8 +12,6 @@ The ECS runs both the Nextjs and dotnet apps (docker containers) on the same tas
 
 The task uses a bridge network for communicating between the containers.
 
-The `cdk.json` file instructs the CDK Toolkit how to execute the app.
-
 ## Useful commands
 
 * `npm run build`   compile typescript to js
