@@ -6,7 +6,7 @@ The code is a Nextjs/dotnet replacement for the "savoy" Wordpress app built by N
 
 http://3.26.70.15/
 
-The CDK code deploys the app as a microservice to an AWS Elastic Container Service (ECS) with the Nextjs frondend code and the dotnet backend API code.
+The CDK deploys the app as a microservice to an AWS Elastic Container Service (ECS) with the Nextjs frondend code and the dotnet backend API code.
 
 The ECS runs both the Nextjs and dotnet apps (docker containers) on the same task using an EC2 cluster.
 
