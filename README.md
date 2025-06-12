@@ -11,7 +11,10 @@ The app runs on an AWS container service (ECS). This was chosen instead of Kuber
 
 The ECS runs both the Nextjs and dotnet apps (docker containers) on the same task using an EC2 cluster. 
 
-The task uses a bridge network for communicating between the containers.
+The task uses a bridge network for communicating between the containers. The main part of the infrastructure is shown in the code extract below. It is currently deployed only on Australian AWS and will be slow to load in Europe/Norway.
+
+![alt text](https://github.com/mckenzie-mm/ecs-nordic-cdk/blob/main/images-readme/1.png)
+![alt text](https://github.com/mckenzie-mm/ecs-nordic-cdk/blob/main/images-readme/2.png)
 
 ## Useful commands
 
@@ -21,9 +24,3 @@ The task uses a bridge network for communicating between the containers.
 * `npx cdk deploy`  deploy this stack to your default AWS account/region
 * `npx cdk diff`    compare deployed stack with current state
 * `npx cdk synth`   emits the synthesized CloudFormation template
-# ecs-nordic-cdk
-
-The main part of the infrastructure is shown in the code extract below. It is currently deployed only on Australian AWS and will be slow to load in Europe/Norway.
-
-![alt text](https://github.com/mckenzie-mm/ecs-nordic-cdk/blob/main/images-readme/1.png)
-![alt text](https://github.com/mckenzie-mm/ecs-nordic-cdk/blob/main/images-readme/2.png)
