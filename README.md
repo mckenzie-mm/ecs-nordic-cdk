@@ -15,6 +15,8 @@ The main part of the infrastructure is shown in the code extract below. It is cu
 ![alt text](https://github.com/mckenzie-mm/ecs-nordic-cdk/blob/main/images-readme/1.png)
 ![alt text](https://github.com/mckenzie-mm/ecs-nordic-cdk/blob/main/images-readme/2.png)
 
+June 2025
+
 ## Useful commands
 
 * `npm run build`   compile typescript to js
